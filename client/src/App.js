@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Quote from './Quote';
 import './App.css';
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to Office Quotes</h1>
           <p className="App-intro">.. even the random ones</p>
         </header>
+        <Quote />
       </div>
     );
   }
