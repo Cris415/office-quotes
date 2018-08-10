@@ -36,7 +36,8 @@ app.get('/random-quote', async (req, res) => {
     { $match: {} },
     { $sample: { size: 1 } }
   ]);
-  res.send(quote[0].line_text);
+  const quoteText = quote[0].line_text + ' - ' + quote[0].speaker;
+  res.send(quoteText);
 });
 
 const PORT = process.env.PORT || 5000;
