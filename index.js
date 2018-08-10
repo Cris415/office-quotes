@@ -9,10 +9,6 @@ const app = express();
 
 const Quote = mongoose.model('quote');
 
-app.get('/', (req, res) => {
-  res.send('Hello world');
-});
-
 app.get('/season/:season/', async (req, res) => {
   const quotes = await Quote.find({ season: req.params.season });
   res.send(quotes);
