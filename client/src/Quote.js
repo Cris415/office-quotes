@@ -13,8 +13,8 @@ class Quote extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch('/api/random-quote')
+  callToServer = () => {
+    return fetch('/api/random-quote')
       .then(res => res.json())
       .then(
         result => {
@@ -36,7 +36,15 @@ class Quote extends Component {
           });
         }
       );
+  };
+
+  componentDidMount() {
+    this.callToServer();
   }
+
+  handleClick = () => {
+    this.callToServer();
+  };
 
   render() {
     const { error, isLoaded, items } = this.state;
@@ -49,10 +57,10 @@ class Quote extends Component {
         <div>
           <h1>{this.state.quote}</h1>
           <p>
-            {' '}
             - {this.state.speaker}, season {this.state.season}, episode{' '}
             {this.state.episode}
           </p>
+          <button onClick={this.handleClick}>New Quote</button>
         </div>
       );
     }
