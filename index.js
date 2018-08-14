@@ -36,6 +36,8 @@ app.get('/api/random-quote', async (req, res) => {
   res.send(quote[0]);
 });
 
+// app.use(express.static('public'));
+
 if (process.env.NODE_ENV === 'production') {
   //  Serve prodution assets like a particular file
   app.use(express.static('client/build'));
