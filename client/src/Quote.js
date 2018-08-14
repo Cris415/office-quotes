@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Quote.css';
+// import jim from './office_images/jim.jpg';
 
 class Quote extends Component {
   constructor(props) {
@@ -61,7 +62,8 @@ class Quote extends Component {
             - {this.state.speaker}, season {this.state.season}, episode{' '}
             {this.state.episode}
           </p>
-          <img src={`/office_images/${this.state.speaker}.jpg`} />
+          {/* <img src={jim} /> */}
+          <img src={`office_images/${this.state.speaker}.jpg`} />
           <button onClick={this.handleClick}>New Quote</button>
         </div>
       );
