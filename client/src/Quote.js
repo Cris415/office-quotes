@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Quote.css';
-// import jim from './office_images/jim.jpg';
+// import * as images from './office_images';
+import images from './images';
 
 class Quote extends Component {
   constructor(props) {
@@ -49,6 +50,7 @@ class Quote extends Component {
   };
 
   render() {
+    console.log('images', images.andy);
     const { error, isLoaded, items } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -62,8 +64,9 @@ class Quote extends Component {
             - {this.state.speaker}, season {this.state.season}, episode{' '}
             {this.state.episode}
           </p>
-          {/* <img src={jim} /> */}
-          <img src={`office_images/${this.state.speaker}.jpg`} />
+          {console.log(images)}
+          {console.log('stuff', images[this.state.speaker.toLowerCase()])}
+          <img src={images[this.state.speaker.toLowerCase()]} />
           <button onClick={this.handleClick}>New Quote</button>
         </div>
       );
